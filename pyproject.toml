@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "iolanta-jinja2"
+version = "0.1.0"
+description = "Render Jinja2 templates from Iolanta graph"
+authors = ["Anatoly Scherbakov <altaisoft@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "iolanta_jinja2"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+iolanta = "^0.1.1"
+Jinja2 = "^3.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
