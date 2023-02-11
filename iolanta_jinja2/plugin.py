@@ -1,8 +1,8 @@
 from typing import Optional
 
+from iolanta import Plugin
 from typer import Typer
 
-from iolanta import Plugin
 from iolanta_jinja2.cli import cli
 
 

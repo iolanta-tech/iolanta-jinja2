@@ -1,12 +1,11 @@
 from functools import partial
-
-import jinja2
 from pathlib import Path
 from typing import Optional
 
-from typer import echo, Typer, Option, Argument, Context
-
+import jinja2
 from iolanta.iolanta import Iolanta
+from typer import Argument, Context, Option, Typer, echo
+
 from iolanta_jinja2.macros import template_render
 from iolanta_jinja2.process_template import process_template
 

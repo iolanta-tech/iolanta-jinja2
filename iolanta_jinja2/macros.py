@@ -1,9 +1,8 @@
-from typing import Union, Optional, List
-
-from rdflib.term import Node, URIRef
+from typing import List, Optional, Union
 
 from iolanta.iolanta import Iolanta
 from iolanta.renderer import render
+from rdflib.term import Node, URIRef
 
 Environments = Union[str, List[str]]
 

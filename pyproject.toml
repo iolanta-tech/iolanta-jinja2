@@ -13,7 +13,7 @@ iolanta = "^0.1.1"
 Jinja2 = "^3.1.2"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.1"
+jeeves-yeti-pyproject = "^0.2.11"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,8 +1,8 @@
 import functools
 
 import jinja2
-
 from iolanta.iolanta import Iolanta
+
 from iolanta_jinja2.macros import template_render
 
 
