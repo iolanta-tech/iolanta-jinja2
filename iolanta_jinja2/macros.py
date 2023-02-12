@@ -1,7 +1,6 @@
 from typing import List, Optional, Union
 
 from iolanta.iolanta import Iolanta
-from iolanta.renderer import render
 from rdflib.term import Node, URIRef
 
 Environments = Union[str, List[str]]
@@ -32,8 +31,7 @@ def template_render(
         for environment in environments
     ]
 
-    return render(
+    return iolanta.render(
         node=URIRef(thing),
-        iolanta=iolanta,
         environments=[URIRef(environment) for environment in environments],
     )

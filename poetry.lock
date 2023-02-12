@@ -776,14 +776,14 @@ files = [
 
 [[package]]
 name = "iolanta"
-version = "0.1.3"
+version = "1.0.2"
 description = "Semantic Web browser"
 category = "main"
 optional = false
-python-versions = ">=3.9,<4.0"
+python-versions = ">=3.10,<4.0"
 files = [
-    {file = "iolanta-0.1.3-py3-none-any.whl", hash = "sha256:4dd58fad79dc6c58e46a7521fee29c56dba4d8d7b78787e95a1a26ce3e2ea4c6"},
-    {file = "iolanta-0.1.3.tar.gz", hash = "sha256:13248da7f034a2a5fc513d4a46a1d084f630dba05cd7e55c72193d0b58301997"},
+    {file = "iolanta-1.0.2-py3-none-any.whl", hash = "sha256:622ce38f40a4ad71e5493fac43754e873610a7b6a0e099c72eba02d75c23fd6a"},
+    {file = "iolanta-1.0.2.tar.gz", hash = "sha256:daac8aea001446e26f449858768768ddad3fb0eea16b3e90f6f27e80fc630d8f"},
 ]
 
 [package.dependencies]
@@ -2115,4 +2115,4 @@ typing_extensions = ">=4.0,<5.0"
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<4.0"
-content-hash = "20f557802c871a7bb7885969ffe4d467414007a68ee9d91de258ead21201df22"
+content-hash = "33af3c16b01f22250be1d20355a24ee90816d059995863a632a5708f66e27402"
