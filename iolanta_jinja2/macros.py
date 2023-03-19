@@ -1,6 +1,7 @@
 from typing import List, Optional, Union
 
 from iolanta.iolanta import Iolanta
+from iolanta.namespaces import IOLANTA
 from rdflib.term import Node, URIRef
 
 Environments = Union[str, List[str]]
@@ -12,7 +13,7 @@ def template_render(
     environments: Optional[Environments] = None,
 ):
     """Macro to render something with Iolanta."""
-    if ':' not in thing:
+    if isinstance(thing, str) and ':' not in thing:
         thing = f'local:{thing}'
 
     thing = iolanta.expand_qname(thing) or thing
@@ -31,7 +32,19 @@ def template_render(
         for environment in environments
     ]
 
-    return iolanta.render(
-        node=URIRef(thing),
+    environments = [
+        iolanta.expand_qname(environment) or environment
+        for environment in environments
+    ]
+
+    if not environments:
+        environments = [IOLANTA.html]
+
+    response, _stack = iolanta.render(
+        node=URIRef(thing) if (  # type: ignore  # noqa: WPS504
+            not isinstance(thing, URIRef)
+        ) else thing,
         environments=[URIRef(environment) for environment in environments],
     )
+
+    return response
