@@ -13,38 +13,24 @@ def template_render(
     environments: Optional[Environments] = None,
 ):
     """Macro to render something with Iolanta."""
-    if isinstance(thing, str) and ':' not in thing:
-        thing = f'local:{thing}'
-
-    thing = iolanta.expand_qname(thing) or thing
-
-    if isinstance(environments, str):
-        environments = [environments]
-
-    elif environments is None:
+    if environments is None:
         environments = []
 
-    environments = [
-        URIRef(f'local:{environment}') if (
-            isinstance(environment, str)
-            and ':' not in environment
-        ) else environment
+    if isinstance(environments, (str, Node)):
+        environments = [environments]
+
+    node = iolanta.string_to_node(thing)
+    environment_nodes = [
+        iolanta.string_to_node(environment)
         for environment in environments
     ]
 
-    environments = [
-        iolanta.expand_qname(environment) or environment
-        for environment in environments
-    ]
-
-    if not environments:
-        environments = [IOLANTA.html]
+    if not environment_nodes:
+        environment_nodes = [IOLANTA.html]
 
     response, _stack = iolanta.render(
-        node=URIRef(thing) if (  # type: ignore  # noqa: WPS504
-            not isinstance(thing, URIRef)
-        ) else thing,
-        environments=[URIRef(environment) for environment in environments],
+        node=node,
+        environments=environment_nodes,
     )
 
     return response
